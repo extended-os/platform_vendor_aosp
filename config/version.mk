@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #Extended Versioning
-EXTENDED_VERSION = v6.4
+EXTENDED_VERSION = v2.0
 
 ifndef EXTENDED_BUILD_TYPE
     EXTENDED_BUILD_TYPE := UNOFFICIAL
@@ -22,24 +22,24 @@ endif
 ifeq ($(EXTENDED_BUILD_TYPE), OFFICIAL)
 
 # AEXOTA
-$(call inherit-product-if-exists, vendor/aosp/config/ota.mk)
+#$(call inherit-product-if-exists, vendor/aosp/config/ota.mk)
 
 endif
 
 TARGET_PRODUCT_SHORT := $(subst aosp_,,$(CUSTOM_BUILD))
 
 EXTENDED_BUILD_DATE := $(shell date -u +%Y%m%d-%H%M)
-EXTENDED_MOD_VERSION := AospExtended-$(EXTENDED_VERSION)-$(EXTENDED_BUILD_DATE)-$(EXTENDED_BUILD_TYPE)
-EXTENDED_FINGERPRINT := AospExtended/$(EXTENDED_VERSION)/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(EXTENDED_BUILD_DATE)
+EXTENDED_MOD_VERSION := aosep-$(EXTENDED_VERSION)-$(EXTENDED_BUILD_DATE)-$(EXTENDED_BUILD_TYPE)
+EXTENDED_FINGERPRINT := aosep/$(EXTENDED_VERSION)/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(EXTENDED_BUILD_DATE)
 
 
 PRODUCT_GENERIC_PROPERTIES += \
-  ro.extended.version=$(EXTENDED_VERSION) \
-  ro.extended.releasetype=$(EXTENDED_BUILD_TYPE) \
+  ro.aosep.version=$(EXTENDED_VERSION) \
+  ro.aosep.releasetype=$(EXTENDED_BUILD_TYPE) \
   ro.modversion=$(EXTENDED_MOD_VERSION)
 
-EXTENDED_DISPLAY_VERSION := AospExtended-$(EXTENDED_VERSION)-$(EXTENDED_BUILD_TYPE)
+EXTENDED_DISPLAY_VERSION := aosep-$(EXTENDED_VERSION)-$(EXTENDED_BUILD_TYPE)
 
 PRODUCT_GENERIC_PROPERTIES += \
-  ro.extended.display.version=$(EXTENDED_DISPLAY_VERSION) \
-  ro.extended.fingerprint=$(EXTENDED_FINGERPRINT)
+  ro.aosep.display.version=$(EXTENDED_DISPLAY_VERSION) \
+  ro.aosep.fingerprint=$(EXTENDED_FINGERPRINT)
