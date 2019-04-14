@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #Extended Versioning
-EXTENDED_VERSION = v2.0
+EXTENDED_VERSION = v2.1
 
 ifndef EXTENDED_BUILD_TYPE
     EXTENDED_BUILD_TYPE := UNOFFICIAL
@@ -34,12 +34,12 @@ EXTENDED_FINGERPRINT := aosep/$(EXTENDED_VERSION)/$(PLATFORM_VERSION)/$(TARGET_P
 
 
 PRODUCT_GENERIC_PROPERTIES += \
-  ro.aosep.version=$(EXTENDED_VERSION) \
-  ro.aosep.releasetype=$(EXTENDED_BUILD_TYPE) \
+  ro.extended.version=$(EXTENDED_VERSION) \
+  ro.extended.releasetype=$(EXTENDED_BUILD_TYPE) \
   ro.modversion=$(EXTENDED_MOD_VERSION)
 
 EXTENDED_DISPLAY_VERSION := aosep-$(EXTENDED_VERSION)-$(EXTENDED_BUILD_TYPE)
 
 PRODUCT_GENERIC_PROPERTIES += \
-  ro.aosep.display.version=$(EXTENDED_DISPLAY_VERSION) \
-  ro.aosep.fingerprint=$(EXTENDED_FINGERPRINT)
+  ro.extended.display.version=$(EXTENDED_DISPLAY_VERSION) \
+  ro.extended.fingerprint=$(EXTENDED_FINGERPRINT)
